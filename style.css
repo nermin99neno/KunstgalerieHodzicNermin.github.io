@@ -33,13 +33,19 @@ p {
     margin: 10px;
     border: 5px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;          /* statt max-width */
+    height: 300px;         /* fixe Box-Höhe */
+    overflow: hidden;
+    background: #ddd;      /* falls doch mal minimal was sichtbar wäre */
 }
 
 .gallery-item img {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     /* der Key: füllt die Box */
     display: block;
 }
+
 
 footer {
     background-color: #333;
@@ -90,4 +96,115 @@ footer {
 @keyframes zoom {
     from {transform: scale(0)}
     to {transform: scale(1)}
+}
+
+.carousel-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  padding: 30px 20px 90px; /* unten Platz wegen fixed footer */
+}
+
+.carousel{
+  position: relative;
+  width: min(900px, 92vw);
+  height: min(520px, 70vh);
+  perspective: 1200px;
+  overflow: hidden;
+}
+
+.slide{
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  transition: transform 350ms ease, opacity 350ms ease, filter 350ms ease;
+  opacity: 0;
+  pointer-events:none;
+}
+
+.slide img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display:block;
+  background: #111;            /* kein weißer Balken mehr */
+  border-radius: 12px;
+  border: 5px solid #ddd;
+  box-shadow: 0 0 16px rgba(0,0,0,0.25);
+}
+
+/* aktive Mitte */
+.slide.active{
+  opacity: 1;
+  pointer-events:auto;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 3;
+}
+
+/* links und rechts sichtbar, kleiner */
+.slide.prev, .slide.next{
+  opacity: 0.65;
+  pointer-events:auto;
+  z-index: 2;
+  filter: blur(0.2px);
+}
+
+.slide.prev{
+  transform: translate(-130%, -50%) scale(0.82);
+}
+
+.slide.next{
+  transform: translate(30%, -50%) scale(0.82);
+}
+
+/* optional: ganz außen leicht sichtbar */
+.slide.prev2, .slide.next2{
+  opacity: 0.25;
+  z-index: 1;
+  pointer-events:none;
+  filter: blur(1px);
+}
+
+.slide.prev2{
+  transform: translate(-175%, -50%) scale(0.65);
+}
+
+.slide.next2{
+  transform: translate(75%, -50%) scale(0.65);
+}
+
+.nav{
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 28px;
+  line-height: 44px;
+  background: #333;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.18);
+}
+
+.nav:active{
+  transform: scale(0.96);
+}
+
+@media (max-width: 700px){
+  .carousel{
+    height: min(420px, 62vh);
+  }
+  .slide{
+    width: 86%;
+  }
+  .slide.prev{
+    transform: translate(-140%, -50%) scale(0.78);
+  }
+  .slide.next{
+    transform: translate(40%, -50%) scale(0.78);
+  }
 }
