@@ -1,79 +1,47 @@
 <!DOCTYPE html>
 <html lang="de">
-<link rel="stylesheet" href="style.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meine Zeichnungen</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>Willkommen zu meiner Kunstgalerie</h1>
-        <p>BILDER ANKLICKEN UM SIE ZU VERGRÖßERN!</p>
+        <p>Mit Pfeiltasten oder Maus steuern!</p>
 		<p>Diese Galerie präsentiert sowohl private Illustrationen als auch Auftragsarbeiten für Kunden. Im Laufe der Jahre habe ich viele meiner Ideen auf die 
 		(digitale) Leinwand gebracht und möchte nun diese Website nutzen, um meine Illustrationen mit der Welt zu teilen.</p>
     </header>
 
-    <main class="gallery">
-        <div class="gallery-item">
-            <img src="kakyoin.jpg" onclick="openLightbox(this)">
-        </div>
-        <div class="gallery-item">
-            <img src="rohan.jpg" onclick="openLightbox(this)">
-        </div>
-        <div class="gallery-item">
-            <img src="sailor.jpg" onclick="openLightbox(this)">
-        </div>
-		<div class="gallery-item">
-            <img src="a3772b1b0759767e065feace87d1f439.png" onclick="openLightbox(this)">
-        </div>
-		<div class="gallery-item">
-            <img src="twitch_banner_andreisky.jpg" onclick="openLightbox(this)">
-        </div>
-		<div class="gallery-item">
-            <img src="KAKASHI.jpg" onclick="openLightbox(this)">
-        </div>
-		<div class="gallery-item">
-            <img src="pink_paradise.jpg" onclick="openLightbox(this)">
-        </div>
-		<div class="gallery-item">
-            <img src="diegoooooo.jpg" onclick="openLightbox(this)">
-        </div>
-		<div class="gallery-item">
-            <img src="diego_black.jpg" onclick="openLightbox(this)">
-        </div>
-		<div class="gallery-item">
-            <img src="aizawa.jpg" onclick="openLightbox(this)">
-        </div>
-		<div class="gallery-item">
-            <img src="allmight.jpg" onclick="openLightbox(this)">
-        </div>
-		<div class="gallery-item">
-            <img src="db.jpg" onclick="openLightbox(this)">
-        </div>
-		<div class="gallery-item">
-            <img src="family.png" onclick="openLightbox(this)">
-        </div>
-		<div class="gallery-item">
-            <img src="gipsy.jpg" onclick="openLightbox(this)">
-        </div>
-		<div class="gallery-item">
-            <img src="sayonara.png" onclick="openLightbox(this)">
-        </div>
-		<div class="gallery-item">
-            <img src="uchiha.jpg" onclick="openLightbox(this)">
-        </div>
-		<div class="gallery-item">
-            <img src="viking.jpg" onclick="openLightbox(this)">
-        </div>
-		<div class="gallery-item">
-            <img src="wb.jpg" onclick="openLightbox(this)">
-        </div>
-		<div class="gallery-item">
-			<img src="sade.jpg" onclick="openLightbox(this)">
-		</div>
-    </main>
+    <main class="carousel-wrap">
+  <button class="nav prev" aria-label="Vorheriges Bild">‹</button>
+
+  <div class="carousel" id="carousel">
+    <div class="slide"><img src="kakyoin.jpg" alt="Zeichnung 1"></div>
+    <div class="slide"><img src="rohan.jpg" alt="Zeichnung 2"></div>
+    <div class="slide"><img src="sailor.jpg" alt="Zeichnung 3"></div>
+    <div class="slide"><img src="a3772b1b0759767e065feace87d1f439.png" alt="Zeichnung 4"></div>
+    <div class="slide"><img src="twitch_banner_andreisky.jpg" alt="Zeichnung 5"></div>
+    <div class="slide"><img src="KAKASHI.jpg" alt="Zeichnung 6"></div>
+    <div class="slide"><img src="pink_paradise.jpg" alt="Zeichnung 7"></div>
+    <div class="slide"><img src="diegoooooo.jpg" alt="Zeichnung 8"></div>
+    <div class="slide"><img src="diego_black.jpg" alt="Zeichnung 9"></div>
+    <div class="slide"><img src="aizawa.jpg" alt="Zeichnung 10"></div>
+    <div class="slide"><img src="allmight.jpg" alt="Zeichnung 11"></div>
+    <div class="slide"><img src="db.jpg" alt="Zeichnung 12"></div>
+    <div class="slide"><img src="family.png" alt="Zeichnung 13"></div>
+    <div class="slide"><img src="gipsy.jpg" alt="Zeichnung 14"></div>
+    <div class="slide"><img src="sayonara.png" alt="Zeichnung 15"></div>
+    <div class="slide"><img src="uchiha.jpg" alt="Zeichnung 16"></div>
+    <div class="slide"><img src="viking.jpg" alt="Zeichnung 17"></div>
+    <div class="slide"><img src="wb.jpg" alt="Zeichnung 18"></div>
+    <div class="slide"><img src="sade.jpg" alt="Zeichnung 19"></div>
+  </div>
+
+  <button class="nav next" aria-label="Nächstes Bild">›</button>
+</main>
+
 		<div id="lightbox" class="lightbox" onclick="closeLightbox()">
 			<img id="lightbox-img" class="lightbox-content">
 		</div>
